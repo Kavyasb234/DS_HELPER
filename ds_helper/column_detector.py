@@ -1,6 +1,6 @@
 import pandas as pd
 
-def detect_column_types(df, cat_threshold=20):
+def detect_column_types(df):
     
     column_types = {
         "numerical": [],
@@ -11,14 +11,9 @@ def detect_column_types(df, cat_threshold=20):
     for col in df.columns:
         col_type = df[col].dtype
         
-        # Case 1: Numeric columns (int/float)
-        if col_type == "int64" or col_type == "float64":
-            unique_vals = df[col].nunique()
-            
-            if unique_vals <= cat_threshold:
-                column_types["categorical"].append(col)  # treat as categorical
-            else:
-                column_types["numerical"].append(col)    # treat as numerical
+        # Case 1: Numeric columns (int/float) - always numerical
+        if col_type in ["int64", "float64"]:
+            column_types["numerical"].append(col)
         
         # Case 2: Object/string columns
         elif col_type == "object":

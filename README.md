@@ -7,8 +7,8 @@ A Python library for data science utilities, including column type detection, au
 Clone the repository and install with pip:
 
 ```bash
-git clone https://github.com/yourusername/ds_helper.git
-cd ds_helper
+git clone https://github.com/Kavyasb234/DS_HELPER.git
+cd DS_HELPER
 pip install -e .
 ```
 
